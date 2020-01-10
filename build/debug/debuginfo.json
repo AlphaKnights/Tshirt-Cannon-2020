@@ -1,0 +1,9 @@
+[
+  {
+    "artifact": "frcJava (in project SoftwarePracticeDrivetrain)",
+    "target": "roborio",
+    "debugfile": "frcJava_roborio.debugconfig",
+    "project": "SoftwarePracticeDrivetrain",
+    "language": "java"
+  }
+]
