@@ -8,17 +8,18 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.shooting;
+import frc.robot.subsystems.LauncherSubsystem;
 
 public class FireBottomRow extends CommandBase {
   /**
    * Creates a new FireBottomRow.
    */
 
-  private final shooting m_shooting;
-  public FireBottomRow(shooting shooting) {
-    m_shooting = shooting;
-    addRequirements(m_shooting);
+  private final LauncherSubsystem launcherSubsystem;
+
+  public FireBottomRow(LauncherSubsystem shooting) {
+    this.launcherSubsystem = shooting;
+    addRequirements(this.launcherSubsystem);
 
   }
 
@@ -30,8 +31,8 @@ public class FireBottomRow extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    shooting.FireBottom();
-    shooting.resetSolenodis();
+    this.launcherSubsystem.OpenBot();
+    this.launcherSubsystem.CloseBot();
   }
 
   // Called once the command ends or is interrupted.
@@ -42,6 +43,6 @@ public class FireBottomRow extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return true;
   }
 }

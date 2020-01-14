@@ -9,21 +9,21 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.drivetrain;
+import frc.robot.subsystems.DrivetrainSubsystem;
 
 public class DefaultDrive extends CommandBase {
   /**
    * Creates a new DefaultDrive.
    */
 
-  private drivetrain m_Drivetrain;
+  private DrivetrainSubsystem m_Drivetrain;
   private Double m_power;
   private Double m_rotation;
   private Joystick m_Joystick;
 
-  public DefaultDrive(drivetrain driveTrain, Joystick joystick) {
-    m_Drivetrain = driveTrain;
-    m_Joystick = joystick;
+  public DefaultDrive(DrivetrainSubsystem driveTrain, Joystick joystick) {
+    this.m_Drivetrain = driveTrain;
+    this.m_Joystick = joystick;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(m_Drivetrain);
   }
@@ -36,7 +36,6 @@ public class DefaultDrive extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    System.out.println("Default Drive is running");
     m_power = m_Joystick.getX();
     m_rotation = m_Joystick.getY();
 

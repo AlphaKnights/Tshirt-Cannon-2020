@@ -5,5 +5,12 @@
     "debugfile": "frcJava_roborio.debugconfig",
     "project": "SoftwarePracticeDrivetrain",
     "language": "java"
+  },
+  {
+    "artifact": "frcJava (in project Tshirt-Cannon-2020)",
+    "target": "roborio",
+    "debugfile": "frcJava_roborio.debugconfig",
+    "project": "Tshirt-Cannon-2020",
+    "language": "java"
   }
 ]
