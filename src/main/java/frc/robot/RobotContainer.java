@@ -15,6 +15,7 @@ import frc.robot.commands.DefaultDrive;
 import frc.robot.commands.FireBottomRow;
 import frc.robot.commands.FireTopRow;
 
+import frc.robot.commands.FireTopRowGroup;
 import frc.robot.subsystems.DrivetrainSubsystem;
 import frc.robot.subsystems.LauncherSubsystem;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -55,7 +56,7 @@ public class RobotContainer {
      * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
      */
     private void configureButtonBindings() {
-        m_topButton.whenPressed(new FireTopRow(launcherSubsystem));
+        m_topButton.whenPressed(new FireTopRowGroup(launcherSubsystem));
         m_bottomButton.whenPressed(new FireBottomRow(launcherSubsystem));
     }
 

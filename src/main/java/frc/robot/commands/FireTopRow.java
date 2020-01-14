@@ -22,9 +22,6 @@ public class FireTopRow extends CommandBase {
     addRequirements(launcherSubsystem);
   }
 
-
-  
-
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
