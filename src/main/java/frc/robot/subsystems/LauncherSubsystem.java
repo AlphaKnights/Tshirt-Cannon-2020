@@ -1,6 +1,7 @@
 package frc.robot.subsystems;
 
 
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
@@ -18,6 +19,8 @@ public class LauncherSubsystem extends SubsystemBase {
   private final Solenoid botMid = new Solenoid(BOT_MID_SOLENOID_PORT);
   private final Solenoid botRight = new Solenoid(BOT_RIGHT_SOLENOID_PORT);
 
+  private final Compressor compressor = new Compressor();
+
   /**
    * The Singleton instance of this LauncherSubsystem. External classes should
    * use the {@link #getInstance()} method to get the instance.
@@ -30,6 +33,7 @@ public class LauncherSubsystem extends SubsystemBase {
    * should use the {@link #getInstance()} method to get the instance.
    */
   private LauncherSubsystem() {
+    compressor.setClosedLoopControl(false);
     // TODO: Set the default command, if any, for this subsystem by calling setDefaultCommand(command)
     //       in the constructor or in the robot coordination class, such as RobotContainer.
     //       Also, you can call addChild(name, sendableChild) to associate sendables with the subsystem

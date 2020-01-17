@@ -16,8 +16,7 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-    public static final class LauncherConstants
-    {
+    public static final class LauncherConstants {
         public static final int TOP_LEFT_SOLENOID_PORT = 0;
         public static final int TOP_MID_SOLENOID_PORT = 1;
         public static final int TOP_RIGHT_SOLENOID_PORT = 2;
@@ -34,7 +33,8 @@ public final class Constants {
     }
 
     public static final class OIConstants {
-        public static final int joystickPort = 0;
+        public static final int DRIVE_JOYSTICK_PORT = 0;
+        public static final int ROTATE_JOYSTICK_PORT = 1;
         public static final int driveJoystickButtonID = 3;
         public static final int fireTopRowButtonID = 5;
         public static final int fireBottomRowButtonID = 6;

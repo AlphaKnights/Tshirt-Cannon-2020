@@ -113,6 +113,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="frc.robot.commands" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Build &amp; Deploy" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
@@ -153,7 +158,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1579020622320</updated>
-      <workItem from="1579020626635" duration="3372000" />
+      <workItem from="1579020626635" duration="3583000" />
+      <workItem from="1579036528501" duration="4711000" />
+      <workItem from="1579132689007" duration="1428000" />
     </task>
     <servers />
   </component>
@@ -169,25 +176,33 @@
       <screen x="0" y="0" width="1707" height="920" />
     </state>
     <state x="533" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1707.920@0.0.1707.920" timestamp="1579020986634" />
-    <state width="1664" height="242" key="GridCell.Tab.0.bottom" timestamp="1579023159851">
+    <state width="1664" height="242" key="GridCell.Tab.0.bottom" timestamp="1579221141254">
       <screen x="0" y="0" width="1707" height="920" />
     </state>
-    <state width="1664" height="242" key="GridCell.Tab.0.bottom/0.0.1707.920@0.0.1707.920" timestamp="1579023159851" />
-    <state width="1664" height="242" key="GridCell.Tab.0.center" timestamp="1579023159851">
+    <state width="1664" height="242" key="GridCell.Tab.0.bottom/0.0.1707.920@0.0.1707.920" timestamp="1579221141254" />
+    <state width="1664" height="242" key="GridCell.Tab.0.center" timestamp="1579221141252">
       <screen x="0" y="0" width="1707" height="920" />
     </state>
-    <state width="1664" height="242" key="GridCell.Tab.0.center/0.0.1707.920@0.0.1707.920" timestamp="1579023159851" />
-    <state width="1664" height="242" key="GridCell.Tab.0.left" timestamp="1579023159851">
+    <state width="1664" height="242" key="GridCell.Tab.0.center/0.0.1707.920@0.0.1707.920" timestamp="1579221141252" />
+    <state width="1664" height="242" key="GridCell.Tab.0.left" timestamp="1579221141251">
       <screen x="0" y="0" width="1707" height="920" />
     </state>
-    <state width="1664" height="242" key="GridCell.Tab.0.left/0.0.1707.920@0.0.1707.920" timestamp="1579023159851" />
-    <state width="1664" height="242" key="GridCell.Tab.0.right" timestamp="1579023159851">
+    <state width="1664" height="242" key="GridCell.Tab.0.left/0.0.1707.920@0.0.1707.920" timestamp="1579221141251" />
+    <state width="1664" height="242" key="GridCell.Tab.0.right" timestamp="1579221141253">
       <screen x="0" y="0" width="1707" height="920" />
     </state>
-    <state width="1664" height="242" key="GridCell.Tab.0.right/0.0.1707.920@0.0.1707.920" timestamp="1579023159851" />
+    <state width="1664" height="242" key="GridCell.Tab.0.right/0.0.1707.920@0.0.1707.920" timestamp="1579221141253" />
+    <state x="552" y="286" key="com.intellij.ide.util.TipDialog" timestamp="1579132928318">
+      <screen x="0" y="0" width="1707" height="920" />
+    </state>
+    <state x="552" y="286" key="com.intellij.ide.util.TipDialog/0.0.1707.920@0.0.1707.920" timestamp="1579132928318" />
     <state x="512" y="211" key="run.anything.popup" timestamp="1579023383371">
       <screen x="0" y="0" width="1707" height="920" />
     </state>
     <state x="512" y="211" key="run.anything.popup/0.0.1707.920@0.0.1707.920" timestamp="1579023383371" />
+    <state x="516" y="196" width="672" height="678" key="search.everywhere.popup" timestamp="1579036670720">
+      <screen x="0" y="0" width="1707" height="920" />
+    </state>
+    <state x="516" y="196" width="672" height="678" key="search.everywhere.popup/0.0.1707.920@0.0.1707.920" timestamp="1579036670720" />
   </component>
 </project>

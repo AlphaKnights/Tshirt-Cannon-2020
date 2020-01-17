@@ -10,12 +10,8 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
-import frc.robot.commands.DefaultDrive;
+import frc.robot.commands.*;
 
-import frc.robot.commands.FireBottomRow;
-import frc.robot.commands.FireTopRow;
-
-import frc.robot.commands.FireTopRowGroup;
 import frc.robot.subsystems.DrivetrainSubsystem;
 import frc.robot.subsystems.LauncherSubsystem;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -30,20 +26,22 @@ import static frc.robot.Constants.OIConstants.*;
  */
 public class RobotContainer {
     // The robot's subsystems and commands are defined here...
-    private final Joystick m_Joystick = new Joystick(joystickPort);
+    private final Joystick driveJoystick = new Joystick(DRIVE_JOYSTICK_PORT);
+    private final Joystick rotateJoystick = new Joystick(ROTATE_JOYSTICK_PORT);
 
-    private final JoystickButton m_topButton = new JoystickButton(m_Joystick, fireTopRowButtonID);
-    private final JoystickButton m_bottomButton = new JoystickButton(m_Joystick, fireBottomRowButtonID);
+    private final JoystickButton m_topButton = new JoystickButton(driveJoystick, fireTopRowButtonID);
+    private final JoystickButton m_bottomButton = new JoystickButton(driveJoystick, fireBottomRowButtonID);
 
 
-    private final LauncherSubsystem     launcherSubsystem = LauncherSubsystem.getInstance();
+    private final LauncherSubsystem launcherSubsystem = LauncherSubsystem.getInstance();
     private final DrivetrainSubsystem drivetrainSubsystem = DrivetrainSubsystem.getInstance();
 
     /**
      * The container for the robot.  Contains subsystems, OI devices, and commands.
      */
     public RobotContainer() {
-        DrivetrainSubsystem.getInstance().setDefaultCommand(new DefaultDrive(drivetrainSubsystem, m_Joystick));
+//        DrivetrainSubsystem.getInstance().setDefaultCommand(new DefaultDrive(drivetrainSubsystem, driveJoystick, rotateJoystick));
+        DrivetrainSubsystem.getInstance().setDefaultCommand(new XboxDrive(drivetrainSubsystem, driveJoystick));
 
         // Configure the button bindings
         configureButtonBindings();
@@ -57,7 +55,7 @@ public class RobotContainer {
      */
     private void configureButtonBindings() {
         m_topButton.whenPressed(new FireTopRowGroup(launcherSubsystem));
-        m_bottomButton.whenPressed(new FireBottomRow(launcherSubsystem));
+        m_bottomButton.whenPressed(new FireBottomRowGroup(launcherSubsystem));
     }
 
 

@@ -7,13 +7,12 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.DrivetrainSubsystem;
 
-import java.lang.Math;
-
-public class DefaultDrive extends CommandBase {
+public class XboxDrive extends CommandBase {
   /**
    * Creates a new DefaultDrive.
    */
@@ -24,12 +23,10 @@ public class DefaultDrive extends CommandBase {
   private Double driveThrottle;
   private Double rotateThrottle;
   private Joystick driveJoystick;
-  private Joystick rotateJoystick;
 
-  public DefaultDrive(DrivetrainSubsystem driveTrain, Joystick m_driveJoystick, Joystick m_rotateJoystick) {
+  public XboxDrive(DrivetrainSubsystem driveTrain, Joystick m_driveJoystick) {
     this.m_Drivetrain = driveTrain;
     this.driveJoystick = m_driveJoystick;
-    this.rotateJoystick = m_rotateJoystick;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(m_Drivetrain);
   }
@@ -42,26 +39,18 @@ public class DefaultDrive extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    driveThrottle = Math.pow(((1 - driveJoystick.getRawAxis(3)) / 2), 0.5);
+    m_Drivetrain.alphaDriveTank(-driveJoystick.getRawAxis(1) , -driveJoystick.getRawAxis(5));
+  }
+//
+//  public void executeRotateMoveStick() {
+//    driveThrottle = Math.pow(((1 - driveJoystick.getRawAxis(3)) / 2), 0.5);
 //    rotateThrottle = (1 - rotateJoystick.getRawAxis(3)) / 2;
 //
 //    m_power = -driveJoystick.getY() * driveThrottle;
 //    m_rotation = rotateJoystick.getZ() * rotateThrottle;
 //
 //    m_Drivetrain.alphaDriveArcade(m_power, m_rotation);
-
-    m_Drivetrain.alphaDriveTank(-rotateJoystick.getY() * driveThrottle, -driveJoystick.getY() * driveThrottle);
-  }
-
-  public void executeRotateMoveStick() {
-    driveThrottle = Math.pow(((1 - driveJoystick.getRawAxis(3)) / 2), 0.5);
-    rotateThrottle = (1 - rotateJoystick.getRawAxis(3)) / 2;
-
-    m_power = -driveJoystick.getY() * driveThrottle;
-    m_rotation = rotateJoystick.getZ() * rotateThrottle;
-
-    m_Drivetrain.alphaDriveArcade(m_power, m_rotation);
-  }
+//  }
 
   // Called once the command ends or is interrupted.
   @Override
