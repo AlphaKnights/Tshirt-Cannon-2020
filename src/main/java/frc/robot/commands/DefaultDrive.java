@@ -43,25 +43,25 @@ public class DefaultDrive extends CommandBase {
   @Override
   public void execute() {
     driveThrottle = Math.pow(((1 - driveJoystick.getRawAxis(3)) / 2), 0.5);
-//    rotateThrottle = (1 - rotateJoystick.getRawAxis(3)) / 2;
-//
-//    m_power = -driveJoystick.getY() * driveThrottle;
-//    m_rotation = rotateJoystick.getZ() * rotateThrottle;
-//
-//    m_Drivetrain.alphaDriveArcade(m_power, m_rotation);
+   rotateThrottle = (1 - rotateJoystick.getRawAxis(3)) / 2;
 
-    m_Drivetrain.alphaDriveTank(-rotateJoystick.getY() * driveThrottle, -driveJoystick.getY() * driveThrottle);
+   m_power = -driveJoystick.getY() * driveThrottle;
+   m_rotation = rotateJoystick.getZ() * rotateThrottle;
+
+   m_Drivetrain.alphaDriveArcade(m_power, m_rotation);
+
+    // m_Drivetrain.alphaDriveTank(-rotateJoystick.getY() * driveThrottle, -driveJoystick.getY() * driveThrottle);
   }
 
-  public void executeRotateMoveStick() {
-    driveThrottle = Math.pow(((1 - driveJoystick.getRawAxis(3)) / 2), 0.5);
-    rotateThrottle = (1 - rotateJoystick.getRawAxis(3)) / 2;
+  // public void executeRotateMoveStick() {
+  //   driveThrottle = Math.pow(((1 - driveJoystick.getRawAxis(3)) / 2), 0.5);
+  //   rotateThrottle = (1 - rotateJoystick.getRawAxis(3)) / 2;
 
-    m_power = -driveJoystick.getY() * driveThrottle;
-    m_rotation = rotateJoystick.getZ() * rotateThrottle;
+  //   m_power = -driveJoystick.getY() * driveThrottle;
+  //   m_rotation = rotateJoystick.getZ() * rotateThrottle;
 
-    m_Drivetrain.alphaDriveArcade(m_power, m_rotation);
-  }
+  //   m_Drivetrain.alphaDriveArcade(m_power, m_rotation);
+  // }
 
   // Called once the command ends or is interrupted.
   @Override

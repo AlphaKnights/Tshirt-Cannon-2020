@@ -7,28 +7,17 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.GenericHID;
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.DrivetrainSubsystem;
 
-public class XboxDrive extends CommandBase {
+public class ShiftRight extends CommandBase {
   /**
-   * Creates a new DefaultDrive.
+   * Creates a new ShiftRight.
    */
-
   private DrivetrainSubsystem m_Drivetrain;
-  private Double m_power;
-  private Double m_rotation;
-  private Double driveThrottle;
-  private Double rotateThrottle;
-  private Joystick driveJoystick;
-
-  public XboxDrive(DrivetrainSubsystem driveTrain, Joystick m_driveJoystick) {
-    this.m_Drivetrain = driveTrain;
-    this.driveJoystick = m_driveJoystick;
+  
+  public ShiftRight() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(m_Drivetrain);
   }
 
   // Called when the command is initially scheduled.
@@ -39,19 +28,6 @@ public class XboxDrive extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    //m_Drivetrain.alphaDriveTank(-driveJoystick.getRawAxis(1) , -driveJoystick.getRawAxis(5));
-  
-
-    //driveThrottle = Math.pow(((1 - driveJoystick.getRawAxis(4)) / 2), 0.5);
-    //rotateThrottle = (1 - driveJoystick.getRawAxis(3)) / 2
-    
-
-    m_power = driveJoystick.getRawAxis(3) - driveJoystick.getRawAxis(2);
-    if (m_power > 0) { m_rotation = driveJoystick.getRawAxis(0); }
-    else { m_rotation = driveJoystick.getRawAxis(0);}
-    
-
-    m_Drivetrain.alphaDriveArcade(m_power, m_rotation);
   }
 
   // Called once the command ends or is interrupted.

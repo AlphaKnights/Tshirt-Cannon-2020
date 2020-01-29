@@ -33,7 +33,7 @@ public class LauncherSubsystem extends SubsystemBase {
    * should use the {@link #getInstance()} method to get the instance.
    */
   private LauncherSubsystem() {
-    compressor.setClosedLoopControl(false);
+    compressor.setClosedLoopControl(true);
     // TODO: Set the default command, if any, for this subsystem by calling setDefaultCommand(command)
     //       in the constructor or in the robot coordination class, such as RobotContainer.
     //       Also, you can call addChild(name, sendableChild) to associate sendables with the subsystem
