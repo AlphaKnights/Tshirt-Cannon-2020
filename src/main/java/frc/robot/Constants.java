@@ -30,6 +30,10 @@ public final class Constants {
         public static final int leftMotor2ID = 2;
         public static final int RightMotor1ID = 3;
         public static final int RightMotor2ID = 0;
+        public static double rightTalonPower = 0;
+        public static double leftTalonPower = 0;
+        public static double navXCorrectionTank = 0;
+        public static boolean notSimpleStraightMode = true;
     }
 
     public static final class OIConstants {
@@ -39,8 +43,18 @@ public final class Constants {
         public static final int fireTopRowButtonID = 5;
         public static final int fireBottomRowButtonID = 6;
         public static final int fireSafetyButtonID = 1;
-
+        public static final int throttleAxis = 3;
         public static final int moveRightButtonID = 1;
         public static final int moveLeftButtonID = 2;
+        public static final int brakeAxis = 2;
+        public static final int driveStraightButtonID = 3;
+        public static final int rotateJoystickAxis = 0;
+    }
+
+    public static class driveStraightConstants {
+        public static double rightTalonPower = 0;
+        public static double leftTalonPower = 0;
+        public static double navXCorrectionTank = 0;
+        public static boolean notSimpleStraightMode = true;
     }
 }

@@ -12,8 +12,10 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.commands.*;
+import edu.wpi.first.wpilibj.SerialPort;
 
 import static frc.robot.Constants.DrivetrainConstants.*;
 
@@ -22,6 +24,9 @@ public class DrivetrainSubsystem extends SubsystemBase {
     private final WPI_TalonSRX leftMotor2 = new WPI_TalonSRX(leftMotor2ID);
     private final WPI_TalonSRX rightMotor1 = new WPI_TalonSRX(RightMotor1ID);
     private final WPI_TalonSRX rightMotor2 = new WPI_TalonSRX(RightMotor2ID);
+
+    private final AHRS navX = new AHRS(SerialPort.Port.kUSB);
+
 
     private final SpeedControllerGroup leftMotors = new SpeedControllerGroup(leftMotor1, leftMotor2);
     private final SpeedControllerGroup rightMotors = new SpeedControllerGroup(rightMotor1, rightMotor2);
@@ -48,6 +53,16 @@ public class DrivetrainSubsystem extends SubsystemBase {
     public void alphaDriveTank(Double lSpeed, Double rSpeed) {
         m_drive.tankDrive(lSpeed, rSpeed);
     }
+
+    public double getNavXAngle() {
+        return navX.getAngle();
+    }
+      
+      public void setNavXZero() {
+        navX.reset();
+      }
+
+
 
     public static DrivetrainSubsystem getInstance() {
         return INSTANCE;

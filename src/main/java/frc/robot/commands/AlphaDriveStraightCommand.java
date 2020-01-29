@@ -11,7 +11,8 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import frc.robot.subsystems.DriveTrainSubSystem;
+import frc.robot.subsystems.DrivetrainSubsystem;
+import frc.robot.Constants.DrivetrainConstants;
 import frc.robot.Constants;
 
 public class AlphaDriveStraightCommand extends CommandBase {
@@ -22,8 +23,8 @@ public class AlphaDriveStraightCommand extends CommandBase {
   JoystickButton straightStick;
 
 
-  DriveTrainSubSystem driveTrainSubSystem;
-  public AlphaDriveStraightCommand(DriveTrainSubSystem driveTrainSubSystem, Joystick throttleStick, JoystickButton straightStick) {
+  DrivetrainSubsystem driveTrainSubSystem;
+  public AlphaDriveStraightCommand(DrivetrainSubsystem driveTrainSubSystem, Joystick throttleStick, JoystickButton straightStick) {
     // Use addRequirements() here to declare subsystem dependencies.
     this.driveTrainSubSystem = driveTrainSubSystem;
     this.throttleJoystick = throttleStick;
@@ -42,27 +43,27 @@ public class AlphaDriveStraightCommand extends CommandBase {
   public void execute() {
     System.out.println(driveTrainSubSystem.getNavXAngle());
     if (straightStick.get()) {
-      if (Constants.driveStraightConstants.notSimpleStraightMode) {
+      if (DrivetrainConstants.notSimpleStraightMode) {
         driveTrainSubSystem.setNavXZero();
-        Constants.driveStraightConstants.notSimpleStraightMode = false;
+        DrivetrainConstants.notSimpleStraightMode = false;
       }
 
     }
     else{
-      Constants.driveStraightConstants.notSimpleStraightMode = true;
+      DrivetrainConstants.notSimpleStraightMode = true;
     }
     if (straightStick.get()) {
-      Constants.driveStraightConstants.navXCorrectionTank = driveTrainSubSystem.getNavXAngle() * 0.01;
-      Constants.driveStraightConstants.leftTalonPower = throttleJoystick.getRawAxis(Constants.OIConstants.throttleAxis) - throttleJoystick.getRawAxis(Constants.OIConstants.brakeAxis) - Constants.driveStraightConstants.navXCorrectionTank;
-      Constants.driveStraightConstants.rightTalonPower = throttleJoystick.getRawAxis(Constants.OIConstants.throttleAxis) - throttleJoystick.getRawAxis(Constants.OIConstants.brakeAxis) + Constants.driveStraightConstants.navXCorrectionTank;
+      DrivetrainConstants.navXCorrectionTank = driveTrainSubSystem.getNavXAngle() * 0.01;
+      DrivetrainConstants.leftTalonPower = throttleJoystick.getRawAxis(Constants.OIConstants.throttleAxis) - throttleJoystick.getRawAxis(Constants.OIConstants.brakeAxis) - Constants.driveStraightConstants.navXCorrectionTank;
+      DrivetrainConstants.rightTalonPower = throttleJoystick.getRawAxis(Constants.OIConstants.throttleAxis) - throttleJoystick.getRawAxis(Constants.OIConstants.brakeAxis) + Constants.driveStraightConstants.navXCorrectionTank;
     }
     else {
-    Constants.driveStraightConstants.leftTalonPower = throttleJoystick.getRawAxis(Constants.OIConstants.throttleAxis) + throttleJoystick.getRawAxis(Constants.OIConstants.rotateJoystickAxis) - throttleJoystick.getRawAxis(Constants.OIConstants.brakeAxis);
-    Constants.driveStraightConstants.rightTalonPower = throttleJoystick.getRawAxis(Constants.OIConstants.throttleAxis) - throttleJoystick.getRawAxis(Constants.OIConstants.rotateJoystickAxis) - throttleJoystick.getRawAxis(Constants.OIConstants.brakeAxis);
+     DrivetrainConstants.leftTalonPower = throttleJoystick.getRawAxis(Constants.OIConstants.throttleAxis) + throttleJoystick.getRawAxis(Constants.OIConstants.rotateJoystickAxis) - throttleJoystick.getRawAxis(Constants.OIConstants.brakeAxis);
+     DrivetrainConstants.rightTalonPower = throttleJoystick.getRawAxis(Constants.OIConstants.throttleAxis) - throttleJoystick.getRawAxis(Constants.OIConstants.rotateJoystickAxis) - throttleJoystick.getRawAxis(Constants.OIConstants.brakeAxis);
     }
     
     
-    DriveTrainSubSystem.getInstance().alphaDriveTank(Constants.driveStraightConstants.leftTalonPower, Constants.driveStraightConstants.rightTalonPower);
+    DrivetrainSubsystem.getInstance().alphaDriveTank(DrivetrainConstants.leftTalonPower, DrivetrainConstants.rightTalonPower);
   }
 
   // Called once the command ends or is interrupted.

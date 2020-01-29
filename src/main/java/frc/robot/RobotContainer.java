@@ -33,6 +33,7 @@ public class RobotContainer {
    private final JoystickButton m_bottomButton = new JoystickButton(driveJoystick, fireBottomRowButtonID);
     private final JoystickButton m_moveRight = new JoystickButton(driveJoystick, moveRightButtonID);
     private final JoystickButton m_moveLeft = new JoystickButton(driveJoystick, moveLeftButtonID);
+    private final JoystickButton driveStraightButton = new JoystickButton(driveJoystick, frc.robot.Constants.OIConstants.driveStraightButtonID);
 
 
     private final LauncherSubsystem launcherSubsystem = LauncherSubsystem.getInstance();
@@ -43,7 +44,9 @@ public class RobotContainer {
      */
     public RobotContainer() {
       //  DrivetrainSubsystem.getInstance().setDefaultCommand(new DefaultDrive(drivetrainSubsystem, driveJoystick, rotateJoystick));
-        DrivetrainSubsystem.getInstance().setDefaultCommand(new XboxDrive(drivetrainSubsystem, driveJoystick));
+        // DrivetrainSubsystem.getInstance().setDefaultCommand(new XboxDrive(drivetrainSubsystem, driveJoystick));
+        DrivetrainSubsystem.getInstance().setDefaultCommand(new AlphaDriveStraightCommand(drivetrainSubsystem, driveJoystick, driveStraightButton));
+
 
         // Configure the button bindings
         configureButtonBindings();
@@ -56,8 +59,8 @@ public class RobotContainer {
      * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
      */
     private void configureButtonBindings() {
-        //m_topButton.whenPressed(new FireTopRowGroup(launcherSubsystem));
-       // m_bottomButton.whenPressed(new FireBottomRowGroup(launcherSubsystem));
+        m_topButton.whenPressed(new FireTopRowGroup(launcherSubsystem));
+       m_bottomButton.whenPressed(new FireBottomRowGroup(launcherSubsystem));
           
 
     }
