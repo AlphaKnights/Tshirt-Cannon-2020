@@ -47,10 +47,17 @@ public class DrivetrainSubsystem extends SubsystemBase {
     }
 
     public void alphaDriveArcade(Double speed, Double rotate) {
+        System.out.println(speed);
         m_drive.arcadeDrive(speed, rotate);
     }
 
+    public void alphaCurveArcade(Double speed, Double rotate) {
+        System.out.println(speed);
+        m_drive.curvatureDrive(speed, rotate, false);
+    }
+
     public void alphaDriveTank(Double lSpeed, Double rSpeed) {
+        System.out.println(lSpeed);
         m_drive.tankDrive(lSpeed, rSpeed);
     }
 

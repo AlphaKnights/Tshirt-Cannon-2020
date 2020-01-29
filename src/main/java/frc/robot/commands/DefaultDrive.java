@@ -63,6 +63,16 @@ public class DefaultDrive extends CommandBase {
   //   m_Drivetrain.alphaDriveArcade(m_power, m_rotation);
   // }
 
+  public Double squareRootDouble(Double input_value) {
+    double output_power = 0.0;
+    if (input_value > 0) {
+      output_power = Math.pow(input_value, 0.5);
+    } else if (input_value < 0) {
+      output_power = -Math.pow(Math.abs(input_value), 0.5);
+    }
+    return output_power;
+  }
+
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {

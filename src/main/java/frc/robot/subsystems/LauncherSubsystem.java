@@ -64,6 +64,14 @@ public class LauncherSubsystem extends SubsystemBase {
     botRight.set(false);
   }
 
+  public void activateCompressor() {
+    compressor.setClosedLoopControl(false);
+  }
+
+  public void deactivateCompressor() {
+    compressor.setClosedLoopControl(true);
+  }
+
   /**
    * Returns the Singleton instance of this LauncherSubsystem. This static method
    * should be used -- {@code LauncherSubsystem.getInstance();} -- by external
